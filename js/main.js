@@ -64,6 +64,13 @@
 		document.querySelector( 'body' ).appendChild( container );
 	}
 
+	/**
+	 * Allows announcing dynamic interface updates to screen readers using ARIA live regions.
+	 *
+	 * @param {string} message  The message to be announced by Assistive Technologies.
+	 * @param {string} ariaLive Optional. The politeness level for aria-live. Possible values:
+ 	 *                          polite or assertive. Default polite.
+	 */
 	function speak( message, ariaLive ) {
 		const containerPolite = document.getElementById( 'a11y-speak-polite' );
 		const containerAssertive = document.getElementById( 'a11y-speak-assertive' );
