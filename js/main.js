@@ -24,6 +24,24 @@
 	let minPoints;
 	let examPoints;
 
+	// Language strings.
+	const lanStrings = {
+		caption : {
+			'en-US': 'Grade table',
+			'fi': 'Arvosanataulukko',
+		},
+		points : {
+			'en-US': 'Points',
+			'fi': 'Pisteet',
+		},
+		grade : {
+			'en-US': 'Grade',
+			'fi': 'Arvosana',
+		}
+	}
+
+	const docLang = document.documentElement.getAttribute( 'lang' );
+
 	/**
 	 * Calculate grade by given points.
 	 *
@@ -47,10 +65,10 @@
 	 function populateTable( grades, points ) {
 		return resultTable = `
 			<table>
-				<caption class="sr-only">Grade table</caption>
+				<caption class="sr-only">${ lanStrings.caption[ docLang ] }</caption>
 				<tr>
-					<th scope="col">Points</th>
-					<th scope="col">Grade</th>
+					<th scope="col">${ lanStrings.points[ docLang ] }</th>
+					<th scope="col">${ lanStrings.grade[ docLang ] }</th>
 				</tr>
 				${ grades.map( grade => `
 				<tr class="${ grade.point == points && points ? 'results has-result-match' : 'results' }">
