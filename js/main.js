@@ -37,10 +37,43 @@
 		grade : {
 			'en-US': 'Grade',
 			'fi': 'Arvosana',
+		},
+		updateMessage : {
+			'en-US': 'Grade table have been updated.',
+			'fi': 'Arvosanataulukko on päivitetty.',
 		}
 	}
 
 	const docLang = document.documentElement.getAttribute( 'lang' );
+
+	/**
+	 * Add container for speak.
+	 *
+	 * @param {string} ariaLive Aria live attribute.
+	 */
+	function addSpeakContainer( ariaLive ) {
+		ariaLive = ariaLive || 'polite';
+
+		const container = document.createElement( 'div' );
+		container.id = 'a11y-speak-' + ariaLive;
+		container.className = 'a11y-speak-region';
+		container.setAttribute( 'aria-live', ariaLive );
+		container.setAttribute( 'aria-relevant', 'additions text' );
+		container.setAttribute( 'aria-atomic', 'true' );
+
+		document.querySelector( 'body' ).appendChild( container );
+	}
+
+	function speak( message, ariaLive ) {
+		const containerPolite = document.getElementById( 'a11y-speak-polite' );
+		const containerAssertive = document.getElementById( 'a11y-speak-assertive' );
+
+		if ( containerAssertive && 'assertive' === ariaLive ) {
+			containerAssertive.textContent = message;
+		} else if ( containerPolite ) {
+			containerPolite.textContent = message;
+		}
+	}
 
 	/**
 	 * Calculate grade by given points.
@@ -105,6 +138,9 @@
 
 		// Populate results inside our div.
 		showResults.innerHTML = resultTable;
+
+		// Speak the dynamic change.
+		speak( lanStrings.updateMessage[ docLang ] );
 	}
 
 	/**
@@ -135,6 +171,10 @@
 		populateResults( maxPoints, minPoints, examPoints );
 	}
 
+	function initOnLoad() {
+		addSpeakContainer();
+	}
+
 	// Listen when the form is submitted.
 	gradeForm.addEventListener( 'submit', calculateGrades, false );
 
@@ -142,5 +182,8 @@
 	gradeForm.addEventListener( 'input', calculateGrades, false );
 
 	// Populate first grade table on page load.
-	window.addEventListener( 'load', calculateGrades, false );
+	document.addEventListener( 'DOMContentLoaded', calculateGrades, false );
+
+	// Populate speak container.
+	document.addEventListener( 'DOMContentLoaded', initOnLoad, false );
 } )();
