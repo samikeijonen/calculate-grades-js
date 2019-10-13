@@ -25,15 +25,17 @@
 				<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 			<![endif]-->
 
-			<h1>Calculate grades</h1>
+			<h1>Calculate grade</h1>
 
-			<p>Calculate grades where minimum number is 4 and maximum number is 10. This is common in Finnish school system.</p>
-			<p>Grade is calculated linearly:</p>
+			<p>Calculate grade by giving</p>
 
-			<pre><code>y = k(x - x_0) + y_0</code></pre>
+			<ul>
+				<li>max. points.</li>
+				<li>min. points which means grade 4.</li>
+				<li>student exam points.</li>
+			</ul>
 
-			<p>Same in JS:</p>
-			<pre><code>const result = ( ( 10 - 4 ) / ( max - min ) ) * ( points - min ) + 4;</code></pre>
+			<p>Mandatory fields are marked with *.</p>
 
 			<form class="calculate-grades" id="js-calculate-grades">
 				<div class="calculate-grades__wrapper spacing-top">
@@ -72,6 +74,15 @@
 			</form>
 
 			<div class="show-results js-show-results" id="js-show-results"></div>
+
+			<h2>Info</h2>
+			<p>Calculate grades where minimum number is 4 and maximum number is 10. This is common in Finnish school system.</p>
+			<p>Grade is calculated linearly:</p>
+
+			<pre><code>y = k(x - x_0) + y_0</code></pre>
+
+			<p>Same in JS:</p>
+			<pre><code>const result = ( ( 10 - 4 ) / ( max - min ) ) * ( points - min ) + 4;</code></pre>
 		</article>
 	</main>
   <script src="js/main.js"></script>
