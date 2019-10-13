@@ -1,0 +1,80 @@
+<!doctype html>
+<html class="no-js" lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>Calculate grades</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/main.css">
+
+	<meta name="theme-color" content="#fafafa">
+
+	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+</head>
+
+<body>
+	<main class="main px-2 py-6">
+		<article class="entry spacing-top">
+			<!--[if IE]>
+				<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+			<![endif]-->
+
+			<h1>Calculate grades</h1>
+
+			<p>Calculate grades where minimum number is 4 and maximum number is 10. This is common in Finnish school system.</p>
+			<p>Grade is calculated linearly:</p>
+
+			<pre><code>y = k(x - x_0) + y_0</code></pre>
+
+			<p>Same in JS:</p>
+			<pre><code>const result = ( ( 10 - 4 ) / ( max - min ) ) * ( points - min ) + 4;</code></pre>
+
+			<form class="calculate-grades" id="js-calculate-grades">
+				<div class="calculate-grades__wrapper spacing-top">
+					<fieldset>
+						<legend>Common grade combinations</legend>
+						<input type="radio" id="max-30" name="usual-max-points" value="30" data-min-points="6" checked="checked">
+						<label for="max-30">Max. points 30</label><br>
+
+						<input type="radio" id="max-36" name="usual-max-points" value="36" data-min-points="7">
+						<label for="max-36">Max. points 36</label><br>
+
+						<input type="radio" id="max-42" name="usual-max-points" value="42" data-min-points="8">
+						<label for="max-42">Max. points 42</label><br>
+
+						<input type="radio" id="max-48" name="usual-max-points" value="48" data-min-points="10">
+						<label for="max-48">Max. points 48</label>
+					</fieldset>
+
+					<p>
+						<label for="max-points">Max. points <span class="required">*</span></label>
+						<input type="number" id="max-points" name="max-points" value="30" required>
+					</p>
+
+					<p>
+						<label for="min-points">Points for grade 4 <span class="required">*</span></label>
+						<input type="number" id="min-points" name="min-points" value="6" required>
+					</p>
+
+					<p>
+						<label for="exam-points">Student points</label>
+						<input type="number" id="exam-points" name="exam-points">
+					</p>
+
+					<input class="calculate-grades__submit" type="submit" value="Calculate">
+				</div>
+			</form>
+
+			<div class="show-results js-show-results" id="js-show-results"></div>
+		</article>
+	</main>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
