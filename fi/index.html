@@ -1,9 +1,9 @@
 <!doctype html>
-<html class="no-js" lang="en-US">
+<html class="no-js" lang="fi">
 
 <head>
   <meta charset="utf-8">
-  <title>Calculate grade</title>
+  <title>Arvosanalaskuri</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="../css/main.css">
 
 	<meta name="theme-color" content="#fafafa">
 
@@ -22,8 +22,8 @@
 	<header>
 		<nav class="main-nav mx-auto max-w-md px-2 py-6">
 			<ul class="main-nav__items">
-				<li class="main-nav__item">In English</li>
-				<li class="main-nav__item"><a class="main-nav__anchor" href="fi/">Suomeksi</a></li>
+				<li class="main-nav__item"><a class="main-nav__anchor" href="../">In English</a></li>
+				<li class="main-nav__item">Suomeksi</li>
 				<li class="main-nav__item"><a class="main-nav__anchor" href="https://github.com/samikeijonen/calculate-grades-js">Github</a></li>
 			</ul>
 		</nav>
@@ -34,69 +34,69 @@
 				<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 			<![endif]-->
 
-			<h1>Calculate grade</h1>
+			<h1>Arvosanalaskuri</h1>
 
-			<p>Calculate grade by giving</p>
+			<p>Laske arvosana antamalla</p>
 
 			<ul>
-				<li>max. points.</li>
-				<li>min. points which means grade 4.</li>
-				<li>student exam points.</li>
+				<li>max. pistemäärä.</li>
+				<li>min. pistemäärä mikä tarkoittaa arvosanaa 4.</li>
+				<li>opiskelijan pistemäärä.</li>
 			</ul>
 
-			<p>Mandatory fields are marked with *.</p>
+			<p>Pakolliset kentät on merkitty *.</p>
 
 			<form class="calculate-grades" id="js-calculate-grades">
 				<div class="calculate-grades__wrapper spacing-top">
 					<fieldset>
-						<legend>Common grade combinations</legend>
+						<legend>Yleisiä maksimipisteitä</legend>
 						<input type="radio" id="max-30" name="usual-max-points" value="30" data-min-points="6" checked="checked">
-						<label for="max-30">Max. points 30</label><br>
+						<label for="max-30">Maksimipisteet 30</label><br>
 
 						<input type="radio" id="max-36" name="usual-max-points" value="36" data-min-points="7">
-						<label for="max-36">Max. points 36</label><br>
+						<label for="max-36">Maksimipisteet 36</label><br>
 
 						<input type="radio" id="max-42" name="usual-max-points" value="42" data-min-points="8">
-						<label for="max-42">Max. points 42</label><br>
+						<label for="max-42">Maksimipisteet 42</label><br>
 
 						<input type="radio" id="max-48" name="usual-max-points" value="48" data-min-points="10">
-						<label for="max-48">Max. points 48</label>
+						<label for="max-48">Maksimipisteet 48</label>
 					</fieldset>
 
 					<p>
-						<label for="max-points">Max. points <span class="required">*</span></label>
+						<label for="max-points">Maksimipisteet <span class="required">*</span></label>
 						<input type="number" id="max-points" name="max-points" value="30" required>
 					</p>
 
 					<p>
-						<label for="min-points">Points for grade 4 <span class="required">*</span></label>
+						<label for="min-points">Nelosen pistemäärä <span class="required">*</span></label>
 						<input type="number" id="min-points" name="min-points" value="6" required>
 					</p>
 
 					<p>
-						<label for="exam-points">Student points</label>
+						<label for="exam-points">Saatu pistemäärä</label>
 						<input type="number" id="exam-points" name="exam-points">
 					</p>
 
-					<input class="calculate-grades__submit" type="submit" value="Calculate">
+					<input class="calculate-grades__submit" type="submit" value="Laske">
 				</div>
 			</form>
 
 			<div class="show-results js-show-results" id="js-show-results"></div>
 
 			<h2>Info</h2>
-			<p>Calculate grades where minimum number is 4 and maximum number is 10. This is common in Finnish school system.</p>
-			<p>Grade is calculated linearly:</p>
+			<p>Laske arvosana välillä 4-10.</p>
+			<p>Arvosanan laskukaava on lineaarinen:</p>
 
 			<pre><code>y = k(x - x_0) + y_0</code></pre>
 
-			<p>Same in JS:</p>
+			<p>Sama JS-koodina:</p>
 			<pre><code>const result = ( ( 10 - 4 ) / ( max - min ) ) * ( points - min ) + 4;</code></pre>
 
-			<p><a href="https://github.com/samikeijonen/calculate-grades-js">Code in Github</a>.</p>
+			<p><a href="https://github.com/samikeijonen/calculate-grades-js">Koodi Githubissa</a>.</p>
 		</article>
 	</main>
-  <script src="js/main.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 
 </html>

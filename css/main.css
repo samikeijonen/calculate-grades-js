@@ -362,6 +362,18 @@ main {
 # Components - specific UI components.
 --------------------------------------------------------------*/
 
+/* Main nav. */
+.main-nav__items {
+	display: flex;
+	flex-wrap: wrap;
+	list-style-type: none;
+}
+
+.main-nav__item {
+	margin-right: var(--spacing-3x);
+}
+
+/* Calculator. */
 .calculate-grades__wrapper {
 	display: grid;
 	grid-gap: var(--spacing-3x);
@@ -454,6 +466,15 @@ main {
 .py-6 {
 	padding-bottom: var(--spacing-6x);
 	padding-top: var(--spacing-6x);
+}
+
+.mx-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.max-w-md {
+	max-width: var(--max-w-md);
 }
 
 /*
